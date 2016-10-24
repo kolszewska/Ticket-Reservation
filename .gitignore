@@ -1,0 +1,6 @@
+# IntelliJ
+.idea/
+
+# Maven
+target/
+TicketReservation.iml
