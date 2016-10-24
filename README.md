@@ -1,3 +1,3 @@
 # TicketReservation
 
-Web applicatiion using Maven, Spring, Tomcat and PostgreSQL.
+Web application using Maven, Spring, Tomcat and ~~PostgreSQL~~ (because windows wouldn't let me) MySQL.
