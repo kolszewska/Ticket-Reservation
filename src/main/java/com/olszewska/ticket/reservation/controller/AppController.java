@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class AppController {
 
     @RequestMapping(value = "/main")
     public String shopListPage(Model model) throws ParseException {
+       // java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         List<Show> showList = showService.findAllShows();
         model.addAttribute("showList", showList);
 

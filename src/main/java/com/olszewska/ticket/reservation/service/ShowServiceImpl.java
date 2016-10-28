@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service("showService")
@@ -19,6 +20,10 @@ public class ShowServiceImpl implements ShowService {
 
     public Show findById(int id) {
         return showRepository.findById(id);
+    }
+
+    public List<Show>findByDate(Date date) {
+        return showRepository.findByDate(date);
     }
 
     public List<Show> findAllShows() {
