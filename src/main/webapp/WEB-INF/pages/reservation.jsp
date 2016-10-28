@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -35,39 +36,39 @@
     </table>
 </div>
 <div class=container>
-    <from>
+    <form:form action="/addReservation/${show.id}" method="POST">
         <div class="form-group row">
             <label for="name-input" class="col-xs-2 col-form-label">First name</label>
             <div class="col-xs-10">
-                <input class="form-control" type="text"  id="name-input">
+                <input class="form-control" type="text"  id="name-input" name="firstName">
             </div>
         </div>
         <div class="form-group row">
             <label for="surname-input" class="col-xs-2 col-form-label">Last Name</label>
             <div class="col-xs-10">
-                <input class="form-control" type="search" id="surname-input">
+                <input class="form-control" type="search" id="surname-input" name="lastName">
             </div>
         </div>
         <div class="form-group row">
             <label for="email-input" class="col-xs-2 col-form-label">Email</label>
             <div class="col-xs-10">
-                <input class="form-control" type="email" id="email-input">
+                <input class="form-control" type="email" id="email-input" name="email">
             </div>
         </div>
         <div class="form-group row">
             <label for="tel-input" class="col-xs-2 col-form-label">Telephone</label>
             <div class="col-xs-10">
-                <input class="form-control" type="tel" id="tel-input">
+                <input class="form-control" type="tel" id="tel-input" name="telephone">
             </div>
         </div>
         <div class="form-group row">
             <label for="tickets-number-input" class="col-xs-2 col-form-label">Number of tickets</label>
             <div class="col-xs-10">
-                <input class="form-control" type="number" id="tickets-number-input">
+                <input class="form-control" type="number" id="tickets-number-input" name="numberOfTickets">
             </div>
         </div>
         <button type="submit" class="btn btn-warning pull-right">Book tickets</button>
-    </from>
+    </form:form>
 </div>
 <jsp:include page="footer.jsp"/>
 </body>
