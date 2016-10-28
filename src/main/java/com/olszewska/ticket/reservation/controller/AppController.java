@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.List;
 
@@ -23,11 +23,19 @@ public class AppController {
     @Autowired
     ShowService showService;
 
-    @RequestMapping(value = "/main")
+    @RequestMapping(value = "/moviesList")
     public String shopListPage(Model model) throws ParseException {
         // java.util.Date date= new java.util.Date();
         List<Show> showList = showService.findAllShows();
         model.addAttribute("showList", showList);
-        return "main";
+        return "moviesList";
+    }
+
+    @RequestMapping(value = "reservation/show/{showId}")
+    public String reservation(@PathVariable(value="showId") String showId, Model model) throws ParseException {
+        int id  = Integer.parseInt(showId);
+        Show show = showService.findById(id);
+        model.addAttribute("show",show);
+        return "reservation";
     }
 }

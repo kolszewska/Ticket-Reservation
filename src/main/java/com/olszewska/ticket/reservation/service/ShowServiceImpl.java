@@ -22,9 +22,9 @@ public class ShowServiceImpl implements ShowService {
         return showRepository.findById(id);
     }
 
-    public List<Show>findByDate(Timestamp date) {
+    /*public List<Show>findByDate(Timestamp date) {
         return showRepository.findByDate(date);
-    }
+    }*/
 
     public List<Show> findAllShows() {
         return showRepository.findAllShows();

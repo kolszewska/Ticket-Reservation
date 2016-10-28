@@ -31,7 +31,7 @@
                             <td>${showList.name}</td>
                             <td>${showList.date}</td>
                             <td>${showList.genre}</td>
-                            <td width="100px"><button type="button" style="width: auto" class="btn btn-warning col-lg-3"  onclick="">Book tickets</button></td>
+                            <td width="100px"><button type="button" style="width: auto" class="btn btn-warning col-lg-3"  onclick="reservation(${showList.id})">Book tickets</button></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -39,6 +39,13 @@
         </div>
     </div>
     <jsp:include page="footer.jsp"/>
+
+    <script>
+        function reservation(showId) {
+            location.href="reservation/show/" + showId;
+        }
+    </script>
+
     </body>
 </html>
 
