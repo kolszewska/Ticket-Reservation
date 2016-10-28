@@ -14,7 +14,7 @@
     </div>
     <div class="description">
         <h1>Ticket Reservation</h1>
-        <p class="lead">If you wan to reserve a ticket just pick the show you are interested from the list below.</p>
+        <p class="lead">If you want to reserve a ticket just pick the show you are interested from the list below.</p>
     </div>
         <div class="container">
             <table id="shows" class="table table-striped table-bordered" cellspacing="0" width="100%">

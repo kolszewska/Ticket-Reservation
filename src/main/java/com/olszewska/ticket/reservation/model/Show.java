@@ -2,7 +2,7 @@ package com.olszewska.ticket.reservation.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 @lombok.Getter
 @lombok.Setter
@@ -18,7 +18,7 @@ public class Show implements Serializable {
     private String name;
 
     @Column(name = "date")
-    private Date date;
+    private Timestamp date;
 
     @Column(name = "genre")
     private String genre;
