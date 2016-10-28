@@ -11,10 +11,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Movies</a></li>
-                <li><a href="#special">Special events</a></li>
-                <li><a href="#prices">Ticket Prices</a></li>
-                <li><a href="#about">Info</a></li>
+                <li class="active"><a href="/moviesList">Movies</a></li>
+                <li><a href="">Special events</a></li>
+                <li><a href="">Ticket Prices</a></li>
+                <li><a href="">Info</a></li>
             </ul>
         </div>
     </div>

@@ -11,7 +11,7 @@ public interface ShowService {
 
     List<Show> findAllShows();
 
-    List<Show> findByDate(Timestamp date);
+    //List<Show> findByDate(Timestamp date);
 
     void deleteShowById(int id);
 
