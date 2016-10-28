@@ -2,7 +2,7 @@ package com.olszewska.ticket.reservation.service;
 
 import com.olszewska.ticket.reservation.model.Show;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface ShowService {
@@ -11,7 +11,7 @@ public interface ShowService {
 
     List<Show> findAllShows();
 
-    List<Show> findByDate(Date date);
+    List<Show> findByDate(Timestamp date);
 
     void deleteShowById(int id);
 
