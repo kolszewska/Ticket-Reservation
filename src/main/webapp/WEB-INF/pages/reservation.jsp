@@ -36,7 +36,7 @@
     </table>
 </div>
 <div class=container>
-    <form:form action="/addReservation/${show.id}" method="POST">
+    <form:form action="/addReservation/${show.id}" name="form" method="POST">
         <div class="form-group row">
             <label for="name-input" class="col-xs-2 col-form-label">First name</label>
             <div class="col-xs-10">

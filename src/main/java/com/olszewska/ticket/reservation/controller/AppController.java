@@ -41,30 +41,23 @@ public class AppController {
     }
 
     @RequestMapping(value = "reservation/show/{showId}")
-    public String reservation(@PathVariable(value="showId") String showId, Model model) throws ParseException {
-        int id  = Integer.parseInt(showId);
-        Show show = showService.findById(id);
+    public String reservation(@PathVariable(value="showId") int showId, Model model) throws ParseException {
+        Show show = showService.findById(showId);
         model.addAttribute("show",show);
         return "reservation";
     }
 
-    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-    public ModelAndView reservation() {
-        return new ModelAndView("reservation","command", new Reservation());
-    }
+    @RequestMapping(value = "/addReservation/{id}", method = RequestMethod.POST)
+    public String addReservation(@PathVariable(value="id") int id, Model model, Reservation reservation) {
 
-    @RequestMapping(value = "/addReservation/{showId}", method = RequestMethod.POST)
-    public String addReservation(@PathVariable(value="showId") String showId, @ModelAttribute("SpringWeb")
-            Reservation reservation, Model model) {
-
-        int id  = Integer.parseInt(showId);
         Reservation newReservation = new Reservation();
+        Show newShow = showService.findById(id);
         newReservation.setFirstName(reservation.getFirstName());
         newReservation.setLastName(reservation.getLastName());
         newReservation.setEmail(reservation.getEmail());
         newReservation.setTelephone(reservation.getTelephone());
         newReservation.setNumberOfTickets(reservation.getNumberOfTickets());
-        newReservation.setShowId(id);
+        newReservation.setShowId(newShow);
 
         reservationRepository.save(newReservation);
 

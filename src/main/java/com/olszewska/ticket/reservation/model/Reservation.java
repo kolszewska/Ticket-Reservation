@@ -14,7 +14,11 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "first name")
+    @ManyToOne
+    @JoinColumn(name = "show_id")
+    private Show showId;
+
+    @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
@@ -28,9 +32,6 @@ public class Reservation implements Serializable {
 
     @Column(name = "number_of_tickets")
     private int numberOfTickets;
-
-    @Column(name = "show_id")
-    private int showId;
 
     @Column(name = "confirmed")
     private boolean confirmed;

@@ -5,9 +5,11 @@ import com.olszewska.ticket.reservation.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@Service
-public class RepositoryServiceImpl {
+@Service("reservationService")
+@Transactional
+public class ReservationServiceImpl implements ReservationService {
 
     @Qualifier("reservationRepository")
     @Autowired
