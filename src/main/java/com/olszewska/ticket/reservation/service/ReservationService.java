@@ -1,8 +1,8 @@
 package com.olszewska.ticket.reservation.service;
 
 
-import org.springframework.stereotype.Repository;
+import com.olszewska.ticket.reservation.model.Reservation;
 
 public interface ReservationService {
-    Repository findByIdx(int id);
+    Reservation findById(int id);
 }
