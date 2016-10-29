@@ -2,6 +2,7 @@ package com.olszewska.ticket.reservation.controller;
 
 import com.olszewska.ticket.reservation.model.Reservation;
 import com.olszewska.ticket.reservation.model.Show;
+import com.olszewska.ticket.reservation.repository.ReservationRepository;
 import com.olszewska.ticket.reservation.repository.ShowRepository;
 import com.olszewska.ticket.reservation.service.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class AppController {
     @Qualifier("showRepository")
     @Autowired
     ShowRepository showRepository;
+
+    @Qualifier("reservationRepository")
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @Autowired
     ShowService showService;
@@ -60,6 +65,8 @@ public class AppController {
         newReservation.setTelephone(reservation.getTelephone());
         newReservation.setNumberOfTickets(reservation.getNumberOfTickets());
         newReservation.setShowId(id);
+
+        reservationRepository.save(newReservation);
 
         model.addAttribute("firstName", newReservation.getFirstName());
         model.addAttribute("lastName", newReservation.getLastName());
