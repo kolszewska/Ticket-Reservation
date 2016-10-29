@@ -18,7 +18,7 @@
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url"
-                  value="jdbc:postgresql://localhost:5432/ticket_reservation? autoReconnect=true createDatabaseIfNotExist=true"/>
+                  value="jdbc:postgresql://localhost:5432/ticket_reservation"/>
         <property name="username" value="karols"/>
         <property name="password" value="karols"/>
     </bean>
