@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -15,34 +14,7 @@
 </div>
 <div class="description">
     <h1>Ticket Reservation</h1>
-    <p class="lead">Confirm your data</p>
-</div>
-<div class=col-lg-12>
-    <div class="container">
-        <table id="reservation" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>E-mail</th>
-                <th>Telephone</th>
-                <th>Number of tickets</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>${reservation.firstName}</td>
-                <td>${reservation.lastName}</td>
-                <td>${reservation.email}</td>
-                <td>${reservation.telephone}</td>
-                <td>${reservation.numberOfTickets}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-xs-9">
-        <button type="button" style="" class="btn btn-warning pull-right">Confirm my data</button>
-    </div>
+    <p class="lead">Note: An e-mail with confirmation link was send on the address you provided<br/>You have 15 minutes to confirm reservation</p>
 </div>
 <jsp:include page="footer.jsp"/>
 </body>
