@@ -14,7 +14,7 @@
         <spring-context.version>4.3.3.RELEASE</spring-context.version>
         <spring-webmvc.version>4.1.6.RELEASE</spring-webmvc.version>
         <mysql-connector-java.version>6.0.4</mysql-connector-java.version>
-        <hibernate-core>5.2.3.Final</hibernate-core>
+        <hibernate-core>4.3.5.Final</hibernate-core>
         <log4j.version>1.2.15</log4j.version>
         <lombok.version>1.16.10</lombok.version>
         <spring-tx.version>4.3.3.RELEASE</spring-tx.version>
@@ -27,8 +27,8 @@
         <jstl.version>1.2</jstl.version>
         <spring-orm.version>4.3.3.RELEASE</spring-orm.version>
         <spring-jdbc.version>4.3.3.RELEASE</spring-jdbc.version>
-        <hibernate-validator.version>5.3.0.Final</hibernate-validator.version>
-        <hibernate-entitymenager.version>5.2.3.Final</hibernate-entitymenager.version>
+        <hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
+        <hibernate-entitymenager.version>4.3.6.Final</hibernate-entitymenager.version>
     </properties>
     <dependencies>
 

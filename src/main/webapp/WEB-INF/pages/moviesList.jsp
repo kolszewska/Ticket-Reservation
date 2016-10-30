@@ -21,17 +21,20 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Date</th>
                         <th>Genre</th>
+                        <th>Screening time</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="showList" items="${showList}">
+                    <c:forEach var="moviesList" items="${moviesList}">
                         <tr>
-                            <td>${showList.name}</td>
-                            <td>${showList.date}</td>
-                            <td>${showList.genre}</td>
-                            <td width="100px"><button type="button" style="width: auto" class="btn btn-warning col-lg-3"  onclick="reservation(${showList.id})">Book tickets</button></td>
+                            <td>${moviesList.name}</td>
+                            <td>${moviesList.genre}</td>
+                            <c:forEach var="screeningList" items="${screeningList}">
+                                <c:if test="${screeningList.movie_id.id == moviesList.id}">
+                                    <td>${screeningList.time}</td>
+                                </c:if>
+                            </c:forEach>
                         </tr>
                     </c:forEach>
                 </tbody>

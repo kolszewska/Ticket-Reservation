@@ -2,7 +2,6 @@ package com.olszewska.ticket.reservation.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 @lombok.Getter
 @lombok.Setter
@@ -15,8 +14,8 @@ public class Reservation implements Serializable {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "show_id")
-    private Show showId;
+    @JoinColumn(name = "screening_id")
+    private Screening screening_id;
 
     @Column(name = "first_name")
     private String firstName;
