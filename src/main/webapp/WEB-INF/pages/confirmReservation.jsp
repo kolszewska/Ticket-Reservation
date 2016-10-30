@@ -41,7 +41,7 @@
         </table>
     </div>
 <div class="description">
-    <p class="lead">Note: An e-mail with confirmation link will be send on the address you provided</p>
+    <p class="lead">Note: An e-mail with confirmation link will be send on the address you provided<br/>You have 15 minutes to confirm reservation</p>
 </div>
     <div class="col-xs-9">
         <button type="button" style="" class="btn btn-warning pull-right">Confirm reservation</button>
