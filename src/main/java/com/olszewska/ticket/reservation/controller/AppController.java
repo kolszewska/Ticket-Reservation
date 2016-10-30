@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.List;
 
@@ -54,15 +55,20 @@ public class AppController {
         return "moviesList";
     }
 
-    @RequestMapping(value = "reservation/show/{showId}")
-    public String reservation(@PathVariable(value = "showId") int showId, Model model) throws ParseException {
-        Movie movie = movieService.findById(showId);
-        model.addAttribute("movie", movie);
+    @RequestMapping(value = "reservation/show/{screeningId}")
+    public String reservation(@PathVariable(value = "screeningId") int screeningId, Model model) throws ParseException {
+        Screening screening = screeningService.findById(screeningId);
+        String movieTitle = screening.getMovie_id().getName();
+        model.addAttribute("screening", screening);
+        model.addAttribute("movieTitle", movieTitle);
         return "reservation";
     }
 
-    @RequestMapping(value = "/addReservation/{id}", method = RequestMethod.POST)
-    public String addReservation(@PathVariable(value = "id") int id, Model model, Reservation reservation) {
+    @RequestMapping(value = "/addReservation/{screeningId}", method = RequestMethod.POST)
+    public String addReservation(@PathVariable(value = "screeningId") int screeningId, Model model, Reservation reservation) {
+        Screening screening = screeningService.findById(screeningId);
+        reservation.setScreening_id(screening);
+        model.addAttribute("reservation",reservation);
         return "confirmReservation";
     }
 }
