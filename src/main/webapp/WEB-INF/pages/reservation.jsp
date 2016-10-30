@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib prefix="timeTag" uri="/timeTag"%>
+<%@taglib prefix="dateTag" uri="/dateTag"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -29,7 +29,7 @@
         <tbody>
             <tr>
                 <td>${movieTitle}</td>
-                <td><timeTag:TimeTag date="${screening.time}"></timeTag:TimeTag></td>
+                <td><dateTag:DateTag date="${screening.time}"></dateTag:DateTag></td>
             </tr>
         </tbody>
     </table>
