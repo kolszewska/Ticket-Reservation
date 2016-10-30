@@ -8,6 +8,7 @@ import com.olszewska.ticket.reservation.repository.ReservationRepository;
 import com.olszewska.ticket.reservation.repository.ScreeningRepository;
 import com.olszewska.ticket.reservation.service.MovieService;
 import com.olszewska.ticket.reservation.service.ScreeningService;
+import com.olszewska.ticket.reservation.service.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.List;
 
@@ -39,7 +39,8 @@ public class AppController {
     MovieService movieService;
     @Autowired
     ScreeningService screeningService;
-
+    @Autowired
+    SendMailService sendMailService;
 
     @RequestMapping(value = {"/", "/index"})
     public String startingView() {
@@ -55,20 +56,29 @@ public class AppController {
         return "moviesList";
     }
 
-    @RequestMapping(value = "reservation/show/{screeningId}")
+    @RequestMapping(value = "/reservation/screening/{screeningId}")
     public String reservation(@PathVariable(value = "screeningId") int screeningId, Model model) throws ParseException {
         Screening screening = screeningService.findById(screeningId);
         String movieTitle = screening.getMovie_id().getName();
         model.addAttribute("screening", screening);
         model.addAttribute("movieTitle", movieTitle);
-        return "reservation";
+        return "provideReservationData";
     }
 
-    @RequestMapping(value = "/addReservation/{screeningId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/confirmData/{screeningId}", method = RequestMethod.POST)
     public String addReservation(@PathVariable(value = "screeningId") int screeningId, Model model, Reservation reservation) {
         Screening screening = screeningService.findById(screeningId);
         reservation.setScreening_id(screening);
         model.addAttribute("reservation",reservation);
+        return "confirmData";
+    }
+
+    @RequestMapping(value = "/confirmReservation/{screeningId}", method = RequestMethod.POST)
+    public String newReservation(@PathVariable(value = "screeningId") int screeningId, Reservation reservation) {
+        Screening screening = screeningService.findById(screeningId);
+        reservation.setScreening_id(screening);
+        reservationRepository.save(reservation);
+        sendMailService.getReservation(reservation);
         return "confirmReservation";
     }
 }

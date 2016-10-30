@@ -45,12 +45,10 @@
         </div>
     </div>
     <jsp:include page="footer.jsp"/>
-
     <script>
         function reservation(screeningId) {
-            location.href="reservation/show/" + screeningId;
+            location.href="reservation/screening/" + screeningId;
         }
     </script>
-
     </body>
 </html>
