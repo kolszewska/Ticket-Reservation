@@ -34,7 +34,7 @@
                             <td id = "screeningDate">
                                 <c:forEach var="screeningList" items="${screeningList}">
                                     <c:if test="${screeningList.movie_id.id == moviesList.id}">
-                                        <span onclick="reservation(${screeningList.movie_id.id})" class="screeningHour"><timeTag:TimeTag date="${screeningList.time}"></timeTag:TimeTag></span>
+                                        <span onclick="reservation(${screeningList.id})" class="screeningHour"><timeTag:TimeTag date="${screeningList.time}"></timeTag:TimeTag></span>
                                     </c:if>
                                 </c:forEach>
                             </td>
@@ -47,8 +47,8 @@
     <jsp:include page="footer.jsp"/>
 
     <script>
-        function reservation(showId) {
-            location.href="reservation/show/" + showId;
+        function reservation(screeningId) {
+            location.href="reservation/show/" + screeningId;
         }
     </script>
 

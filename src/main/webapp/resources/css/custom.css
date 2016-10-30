@@ -29,6 +29,7 @@ body {
 }
 
 .screeningHour {
-    padding: 0 20px 0 0;
+    padding: 0 10px 0 0;
     cursor: pointer;
+    text-decoration: underline;
 }

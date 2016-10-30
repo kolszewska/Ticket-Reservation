@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib prefix="timeTag" uri="/timeTag"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -23,20 +24,18 @@
         <tr>
             <th>Name</th>
             <th>Date</th>
-            <th>Genre</th>
         </tr>
         </thead>
         <tbody>
             <tr>
-                <td>${movie.name}</td>
-                <td>${show.date}</td>
-                <td>${show.genre}</td>
+                <td>${movieTitle}</td>
+                <td><timeTag:TimeTag date="${screening.time}"></timeTag:TimeTag></td>
             </tr>
         </tbody>
     </table>
 </div>
 <div class=container>
-    <form:form action="/addReservation/${show.id}" name="form" method="POST">
+    <form:form action="/addReservation/${screening.id}?" name="form" method="POST">
         <div class="form-group row">
             <label for="name-input" class="col-xs-2 col-form-label">First name</label>
             <div class="col-xs-10">
@@ -64,7 +63,7 @@
         <div class="form-group row">
             <label for="tickets-number-input" class="col-xs-2 col-form-label">Number of tickets</label>
             <div class="col-xs-10">
-                <input class="form-control" type="number" id="tickets-number-input" name="numberOfTickets">
+                <input class="form-control" type="number" id="tickets-number-input" min="1" max="10" name="numberOfTickets">
             </div>
         </div>
         <button type="submit" class="btn btn-warning pull-right">Book tickets</button>
