@@ -27,3 +27,8 @@ body {
 .container .text-muted {
     margin: 20px 0;
 }
+
+.screeningHour {
+    padding: 0 20px 0 0;
+    cursor: pointer;
+}
