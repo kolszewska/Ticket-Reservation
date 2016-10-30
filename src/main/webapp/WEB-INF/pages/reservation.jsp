@@ -28,7 +28,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>${show.name}</td>
+                <td>${movie.name}</td>
                 <td>${show.date}</td>
                 <td>${show.genre}</td>
             </tr>

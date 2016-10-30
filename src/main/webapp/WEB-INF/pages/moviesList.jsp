@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
+<%@taglib prefix="timeTag" uri="/timeTag"%>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -30,11 +31,13 @@
                         <tr>
                             <td>${moviesList.name}</td>
                             <td>${moviesList.genre}</td>
-                            <c:forEach var="screeningList" items="${screeningList}">
-                                <c:if test="${screeningList.movie_id.id == moviesList.id}">
-                                    <td>${screeningList.time}</td>
-                                </c:if>
-                            </c:forEach>
+                            <td id = "screeningDate">
+                                <c:forEach var="screeningList" items="${screeningList}">
+                                    <c:if test="${screeningList.movie_id.id == moviesList.id}">
+                                        <span onclick="reservation(${screeningList.movie_id.id})" class="screeningHour"><timeTag:TimeTag date="${screeningList.time}"></timeTag:TimeTag></span>
+                                    </c:if>
+                                </c:forEach>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -51,4 +54,3 @@
 
     </body>
 </html>
-
