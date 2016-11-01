@@ -1,6 +1,6 @@
 package com.olszewska.ticket.reservation.controller;
 
-import com.olszewska.ticket.reservation.mail.SendMail;
+import com.olszewska.ticket.reservation.component.SendMail;
 import com.olszewska.ticket.reservation.model.Movie;
 import com.olszewska.ticket.reservation.model.Reservation;
 import com.olszewska.ticket.reservation.model.Screening;
@@ -9,13 +9,14 @@ import com.olszewska.ticket.reservation.repository.ReservationRepository;
 import com.olszewska.ticket.reservation.repository.ScreeningRepository;
 import com.olszewska.ticket.reservation.service.MovieService;
 import com.olszewska.ticket.reservation.service.ScreeningService;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.mail.MessagingException;
 import java.text.ParseException;
@@ -41,7 +42,7 @@ public class AppController {
     @Autowired
     ScreeningService screeningService;
     @Autowired
-    private SendMail sendMail;
+    SendMail sendMail;
 
 
     @RequestMapping(value = {"/", "/index"})
@@ -53,7 +54,7 @@ public class AppController {
     public String shopListPage(Model model) throws ParseException {
         List<Movie> moviesList = movieService.findAllMovies();
         List<Screening> screeningList = screeningService.findAllScreenings();
-        model.addAttribute("screeningList",screeningList);
+        model.addAttribute("screeningList", screeningList);
         model.addAttribute("moviesList", moviesList);
         return "moviesList";
     }
@@ -71,7 +72,7 @@ public class AppController {
     public String addReservation(@PathVariable(value = "screeningId") int screeningId, Model model, Reservation reservation) {
         Screening screening = screeningService.findById(screeningId);
         reservation.setScreening_id(screening);
-        model.addAttribute("reservation",reservation);
+        model.addAttribute("reservation", reservation);
         return "confirmData";
     }
 
