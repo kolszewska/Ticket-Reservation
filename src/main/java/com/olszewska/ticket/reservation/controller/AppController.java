@@ -52,8 +52,8 @@ public class AppController {
 
     @RequestMapping(value = "/moviesList")
     public String shopListPage(Model model) throws ParseException {
-        List<Movie> moviesList = movieService.findAllMovies();
-        List<Screening> screeningList = screeningService.findAllScreenings();
+        List<Movie> moviesList = movieRepository.findAll();
+        List<Screening> screeningList = screeningRepository.findAll();
         model.addAttribute("screeningList", screeningList);
         model.addAttribute("moviesList", moviesList);
         return "moviesList";

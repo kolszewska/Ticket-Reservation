@@ -52,9 +52,9 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
-        <property name="username" value = "${mailSender.username}"  />
-        <property name="password" value = "${mailSender.password}" />
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="username" value="${mailSender.username}"/>
+        <property name="password" value="${mailSender.password}"/>
         <property name="javaMailProperties">
             <props>
                 <prop key="mail.smtp.ssl.trust">${mailSender.ssl.trust}</prop>
