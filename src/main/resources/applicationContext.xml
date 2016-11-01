@@ -49,8 +49,8 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
-        <property name="username" value = "kolszewskacinema@gmail.com"  />
-        <property name="password" value ="Cinema123" />
+        <property name="username" value = ""  />
+        <property name="password" value ="" />
         <property name="javaMailProperties">
             <props>
                 <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
