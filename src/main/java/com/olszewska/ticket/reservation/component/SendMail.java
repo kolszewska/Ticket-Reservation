@@ -20,7 +20,6 @@ public class SendMail {
     @Autowired
     private JavaMailSender javaMailSender;
 
-
     private final static String SUBJECT = "Confirm your reservation";
     private final static String FROM = "kolszewskacinema@gmail.com";
     private Reservation reservation;
@@ -51,10 +50,10 @@ public class SendMail {
         return message;
     }
 
-    public void send(Reservation reservation)  {
+    public void send(Reservation reservation) {
         setReservation(reservation);
         MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper mimeMessageHelper= null;
+        MimeMessageHelper mimeMessageHelper = null;
         try {
             mimeMessageHelper = new MimeMessageHelper(message, true);
             log.info("Created new message successfully");
