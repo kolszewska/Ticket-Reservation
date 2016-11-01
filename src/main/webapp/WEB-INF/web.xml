@@ -31,11 +31,11 @@
     <jsp-config>
         <taglib>
             <taglib-uri>/timeTag</taglib-uri>
-            <taglib-location>/WEB-INF/timeTag.tld</taglib-location>
+            <taglib-location>/WEB-INF/taglib/timeTag.tld</taglib-location>
         </taglib>
         <taglib>
             <taglib-uri>/dateTag</taglib-uri>
-            <taglib-location>/WEB-INF/dateTag.tld</taglib-location>
+            <taglib-location>/WEB-INF/taglib/dateTag.tld</taglib-location>
         </taglib>
     </jsp-config>
 </web-app>

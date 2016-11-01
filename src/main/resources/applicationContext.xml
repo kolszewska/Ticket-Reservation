@@ -17,27 +17,31 @@
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:/application.properties"/>
+    </bean>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="driverClassName" value="${dataSource.driverClassName}"/>
         <property name="url"
-                  value="jdbc:postgresql://localhost:5432/ticket_reservation"/>
-        <property name="username" value="karols"/>
-        <property name="password" value="karols"/>
+                  value="${dataSource.url}"/>
+        <property name="username" value="${dataSource.username}"/>
+        <property name="password" value="${dataSource.password}"/>
     </bean>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="punit"/>
+        <property name="persistenceUnitName" value="${entityManagerFactory.persistenceUnitName}"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="showSql" value="true"/>
+                <property name="showSql" value="${entityManagerFactory.showSql}"/>
             </bean>
         </property>
         <property name="jpaPropertyMap">
             <map>
-                <entry key="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/>
-                <entry key="hibernate.hbm2ddl.auto" value="validate"/>
-                <entry key="hibernate.format_sql" value="true"/>
+                <entry key="hibernate.dialect" value="${entityManagerFactory.hibernate.dialect}"/>
+                <entry key="hibernate.hbm2ddl.auto" value="${entityManagerFactory.hibernate.hbm2ddl.auto}"/>
+                <entry key="hibernate.format_sql" value="${entityManagerFactory.hibernate.format_sql}"/>
             </map>
         </property>
     </bean>
@@ -49,15 +53,15 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
-        <property name="username" value = ""  />
-        <property name="password" value ="" />
+        <property name="username" value = "${mailSender.username}"  />
+        <property name="password" value = "${mailSender.password}" />
         <property name="javaMailProperties">
             <props>
-                <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
-                <prop key="mail.smtp.host">smtp.gmail.com</prop>
-                <prop key="mail.smtp.port">587</prop>
-                <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.ssl.trust">${mailSender.ssl.trust}</prop>
+                <prop key="mail.smtp.host">${mailSender.host}</prop>
+                <prop key="mail.smtp.port">${mailSender.port}</prop>
+                <prop key="mail.smtp.auth">${mailSender.auth}</prop>
+                <prop key="mail.smtp.starttls.enable">${mailSender.starttls.enable}</prop>
             </props>
         </property>
     </bean>
