@@ -11,8 +11,8 @@ public class DateTag extends SimpleTagSupport {
 
     private Timestamp date;
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setDate(Timestamp dateProvided) {
+        this.date = dateProvided;
     }
     public void doTag() throws JspException,IOException {
         if(date != null) {
