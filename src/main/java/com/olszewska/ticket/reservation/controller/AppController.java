@@ -1,5 +1,6 @@
 package com.olszewska.ticket.reservation.controller;
 
+import com.olszewska.ticket.reservation.mail.SendMail;
 import com.olszewska.ticket.reservation.model.Movie;
 import com.olszewska.ticket.reservation.model.Reservation;
 import com.olszewska.ticket.reservation.model.Screening;
@@ -8,7 +9,6 @@ import com.olszewska.ticket.reservation.repository.ReservationRepository;
 import com.olszewska.ticket.reservation.repository.ScreeningRepository;
 import com.olszewska.ticket.reservation.service.MovieService;
 import com.olszewska.ticket.reservation.service.ScreeningService;
-import com.olszewska.ticket.reservation.service.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.mail.MessagingException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class AppController {
     @Autowired
     ScreeningService screeningService;
     @Autowired
-    SendMailService sendMailService;
+    private SendMail sendMail;
+
 
     @RequestMapping(value = {"/", "/index"})
     public String startingView() {
@@ -74,11 +76,11 @@ public class AppController {
     }
 
     @RequestMapping(value = "/confirmReservation/{screeningId}", method = RequestMethod.POST)
-    public String newReservation(@PathVariable(value = "screeningId") int screeningId, Reservation reservation) {
+    public String newReservation(@PathVariable(value = "screeningId") int screeningId, Reservation reservation) throws MessagingException {
         Screening screening = screeningService.findById(screeningId);
         reservation.setScreening_id(screening);
         reservationRepository.save(reservation);
-        sendMailService.getReservation(reservation);
+        sendMail.send(reservation);
         return "confirmReservation";
     }
 }
