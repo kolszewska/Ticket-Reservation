@@ -22,7 +22,7 @@
     <table id="shows" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th>Name</th>
+            <th>Title</th>
             <th>Date</th>
         </tr>
         </thead>

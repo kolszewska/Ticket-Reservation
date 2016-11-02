@@ -39,7 +39,7 @@ public class SendMail {
         StringBuilder mailContent = new StringBuilder();
         mailContent.append("Dear ").append(reservation.getFirstName()).append(" ").append(reservation.getLastName()).append(",<br/>");
         mailContent.append("Your reservation was accepted and every detail can be found below: ").append("<br/><br/>");
-        mailContent.append("Movie: ").append(reservation.getScreening_id().getMovie_id().getName()).append("<br/>");
+        mailContent.append("Movie: ").append(reservation.getScreening_id().getMovie_id().getTitle()).append("<br/>");
         mailContent.append("Date: ").append(formattedDate).append("<br/>");
         mailContent.append("Auditorium: ").append(reservation.getScreening_id().getAuditorium_id());
         mailContent.append("<br/><br/>");

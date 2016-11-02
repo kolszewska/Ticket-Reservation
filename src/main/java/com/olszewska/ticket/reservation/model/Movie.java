@@ -14,7 +14,7 @@ public class Movie implements Serializable {
     private int id;
 
     @Column(name = "title")
-    private String name;
+    private String title;
 
     @Column(name = "genre")
     private String genre;

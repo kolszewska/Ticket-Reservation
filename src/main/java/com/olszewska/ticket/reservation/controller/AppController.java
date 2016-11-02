@@ -64,7 +64,7 @@ public class AppController {
     @RequestMapping(value = "/reservation/screening/{screeningId}")
     public String reservation(@PathVariable(value = "screeningId") int screeningId, Model model) throws ParseException {
         Screening screening = screeningService.findById(screeningId);
-        String movieTitle = screening.getMovie_id().getName();
+        String movieTitle = screening.getMovie_id().getTitle();
         model.addAttribute("screening", screening);
         model.addAttribute("movieTitle", movieTitle);
         return "provideReservationData";

@@ -22,7 +22,7 @@
         <table id="shows" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th>Name</th>
+                <th>Title</th>
                 <th>Genre</th>
                 <th>Screening time</th>
             </tr>
@@ -30,7 +30,7 @@
             <tbody>
             <c:forEach var="moviesList" items="${moviesList}">
                 <tr>
-                    <td>${moviesList.name}</td>
+                    <td>${moviesList.title}</td>
                     <td>${moviesList.genre}</td>
                     <td id="screeningDate">
                         <c:forEach var="screeningList" items="${screeningList}">
