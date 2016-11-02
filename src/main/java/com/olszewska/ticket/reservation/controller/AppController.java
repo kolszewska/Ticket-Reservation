@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import javax.mail.MessagingException;
 import java.text.ParseException;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class AppController {
@@ -80,12 +81,21 @@ public class AppController {
     @RequestMapping(value = "/confirmReservation/{screeningId}", method = RequestMethod.POST)
     public String newReservation(@PathVariable(value = "screeningId") int screeningId, Reservation reservation) throws MessagingException {
         Screening screening = screeningService.findById(screeningId);
+        UUID newVerificationKey = UUID.randomUUID();
         reservation.setScreening_id(screening);
+        reservation.setVerificationKey(newVerificationKey.toString());
         reservationRepository.save(reservation);
         sendMail.send(reservation);
         return "confirmReservation";
     }
 
+    @RequestMapping(value = "/finishReservation/{verificationKey}")
+    public String finishReservation(@PathVariable(value = "verificationKey") String verificationKey) {
+        Reservation reservation = reservationRepository.findByVerificationKey(verificationKey);
+        reservation.setConfirmed(true);
+        reservationRepository.save(reservation);
+        return "finishReservation";
+    }
 
     @ExceptionHandler(Exception.class)
     public String handleError() {

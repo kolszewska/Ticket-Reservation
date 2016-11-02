@@ -34,4 +34,7 @@ public class Reservation implements Serializable {
 
     @Column(name = "confirmed")
     private boolean confirmed;
+
+    @Column(name = "verification_key")
+    private String verificationKey;
 }

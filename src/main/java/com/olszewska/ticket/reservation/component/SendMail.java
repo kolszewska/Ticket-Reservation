@@ -22,6 +22,7 @@ public class SendMail {
 
     private final static String SUBJECT = "Confirm your reservation";
     private final static String FROM = "kolszewskacinema@gmail.com";
+    private final static String URL = "http://localhost:8080/finishReservation/";
     private Reservation reservation;
 
     public void setReservation(Reservation reservation) {
@@ -42,7 +43,8 @@ public class SendMail {
         mailContent.append("Date: ").append(formattedDate).append("<br/>");
         mailContent.append("Auditorium: ").append(reservation.getScreening_id().getAuditorium_id());
         mailContent.append("<br/><br/>");
-        mailContent.append("Please confirm your reservation clicking the link below: ").append("<br/>");
+        mailContent.append("Please confirm your reservation clicking the link below: ").append("<br/><br/>");
+        mailContent.append(URL).append(reservation.getVerificationKey());
 
         message.setText(mailContent.toString(), true);
         message.setTo(reservation.getEmail());

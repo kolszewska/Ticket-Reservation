@@ -15,8 +15,7 @@
         </div>
         <div class="description">
             <h1>Ticket Reservation</h1>
-            <p class="lead">Note: An e-mail with confirmation link was send on the address you provided<br/>You have 15 minutes
-                to confirm reservation</p>
+            <p class="lead">Note: An e-mail with confirmation link was send on the address you provided</p>
         </div>
     <jsp:include page="footer.jsp"/>
     </body>
