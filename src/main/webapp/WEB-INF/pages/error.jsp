@@ -9,16 +9,14 @@
         <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/css/custom.css" />" rel="stylesheet">
     </head>
-    <body>
-        <div class="container">
-            <jsp:include page="navbar.jsp"/>
-        </div>
-        <div class="description">
-            <h1>Ticket Reservation</h1>
-            <p class="lead">Note: An e-mail with confirmation link was send on the address you provided<br/>You have 15 minutes
-                to confirm reservation</p>
-        </div>
-    <jsp:include page="footer.jsp"/>
-    </body>
+        <body>
+            <div class="container">
+                <jsp:include page="navbar.jsp"/>
+            </div>
+            <div class="description">
+                <h1>Uh oh! Something went wrong!</h1>
+                <p class="lead">Handling errors and exceptions not yet implemented. Ooops.</p>
+            </div>
+        <jsp:include page="footer.jsp"/>
+        </body>
 </html>
-
