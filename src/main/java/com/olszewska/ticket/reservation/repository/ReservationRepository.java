@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository("reservationRepository")
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
     Reservation findById( int id);
+    Reservation findByVerificationKey(String verificationKey);
 }

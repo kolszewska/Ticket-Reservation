@@ -20,4 +20,8 @@ public class ReservationServiceImpl implements ReservationService {
     public Reservation findById(int id) {
         return reservationRepository.findById(id);
     }
+
+    public Reservation findByVerificationKey(String verificationKey) {
+        return reservationRepository.findByVerificationKey(verificationKey);
+    }
 }
