@@ -12,6 +12,7 @@ import com.olszewska.ticket.reservation.service.ScreeningService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -83,5 +84,11 @@ public class AppController {
         reservationRepository.save(reservation);
         sendMail.send(reservation);
         return "confirmReservation";
+    }
+
+
+    @ExceptionHandler(Exception.class)
+    public String handleError() {
+        return "error";
     }
 }

@@ -39,13 +39,13 @@
         <div class="form-group row">
             <label for="name-input" class="col-xs-2 col-form-label">First name</label>
             <div class="col-xs-10">
-                <input class="form-control" type="text"  id="name-input" name="firstName" required="required">
+                <input class="form-control" type="text" pattern="[A-Za-z]{1,20}" id="name-input" name="firstName" required="required">
             </div>
         </div>
         <div class="form-group row">
             <label for="surname-input" class="col-xs-2 col-form-label">Last Name</label>
             <div class="col-xs-10">
-                <input class="form-control" type="search" id="surname-input" name="lastName" required="required">
+                <input class="form-control" type="search" pattern="[A-Za-z]{1,20}" id="surname-input" name="lastName" required="required">
             </div>
         </div>
         <div class="form-group row">
@@ -57,7 +57,7 @@
         <div class="form-group row">
             <label for="tel-input" class="col-xs-2 col-form-label">Telephone</label>
             <div class="col-xs-10">
-                <input class="form-control" type="tel" id="tel-input" name="telephone" required="required">
+                <input class="form-control" type="tel" pattern="[0-9]{9,12}" id="tel-input" name="telephone" required="required">
             </div>
         </div>
         <div class="form-group row">
