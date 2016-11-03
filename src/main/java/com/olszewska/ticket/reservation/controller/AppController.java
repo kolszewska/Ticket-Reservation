@@ -29,22 +29,20 @@ public class AppController {
 
     @Qualifier("movieRepository")
     @Autowired
-    MovieRepository movieRepository;
+    private MovieRepository movieRepository;
 
     @Qualifier("screeningRepository")
     @Autowired
-    ScreeningRepository screeningRepository;
+    private ScreeningRepository screeningRepository;
 
     @Qualifier("reservationRepository")
     @Autowired
-    ReservationRepository reservationRepository;
+    private ReservationRepository reservationRepository;
 
     @Autowired
-    MovieService movieService;
+    private ScreeningService screeningService;
     @Autowired
-    ScreeningService screeningService;
-    @Autowired
-    SendMail sendMail;
+    private SendMail sendMail;
 
 
     @RequestMapping(value = {"/", "/index"})
@@ -53,7 +51,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "/moviesList")
-    public String shopListPage(Model model) throws ParseException {
+    public String moviesList(Model model) throws ParseException {
         List<Movie> moviesList = movieRepository.findAll();
         List<Screening> screeningList = screeningRepository.findAll();
         model.addAttribute("screeningList", screeningList);
@@ -71,7 +69,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "/confirmData/{screeningId}", method = RequestMethod.POST)
-    public String addReservation(@PathVariable(value = "screeningId") int screeningId, Model model, Reservation reservation) {
+    public String addNewReservation(@PathVariable(value = "screeningId") int screeningId, Model model, Reservation reservation) {
         Screening screening = screeningService.findById(screeningId);
         reservation.setScreening_id(screening);
         model.addAttribute("reservation", reservation);
@@ -79,7 +77,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "/confirmReservation/{screeningId}", method = RequestMethod.POST)
-    public String newReservation(@PathVariable(value = "screeningId") int screeningId, Reservation reservation) throws MessagingException {
+    public String confirmReservationData(@PathVariable(value = "screeningId") int screeningId, Reservation reservation) throws MessagingException {
         Screening screening = screeningService.findById(screeningId);
         UUID newVerificationKey = UUID.randomUUID();
         reservation.setScreening_id(screening);
