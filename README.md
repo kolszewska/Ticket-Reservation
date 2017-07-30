@@ -1,5 +1,12 @@
 # TicketReservation
 
+## NOTE: 
+This project was created some time ago and looking at it now I am not satisfied with some decisions that I made during development.
+
+This is why I have decide to create a new project with the same goal but I would like to use thing that I have learned that I did not know back then.
+
+New project can be found [here](https://github.com/kolszewska/Ticket-reservation-v.2). 
+
 Basic web application made for booking cinema tickets. 
 
 ## Technology:
